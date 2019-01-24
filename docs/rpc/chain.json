@@ -1,0 +1,784 @@
+{  
+  "openapi":"3.0.0",
+  "info":{  
+     "title":"Chain",
+     "version":"0.0.1"
+  },
+  "servers":[  
+     {  
+        "url":"http://127.0.0.1:8888/v1/chain"
+     }
+  ],
+  "components":{  
+     "securitySchemes":{  
+
+     },
+     "schemas":{  
+
+     }
+  },
+  "security":[  
+     {  
+
+     }
+  ],
+  "paths":{  
+     "/get_info":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"get_info",
+           "description":"Returns an object containing various details about the blockchain.",
+           "operationId":"get_info",
+           "parameters":[  
+
+           ],
+           "requestBody":null,
+           "deprecated":false,
+           "security":[  
+
+           ]
+        }
+     },
+     "/get_code":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"get_code",
+           "description":"Returns an object containing various details about a specific smart contract on the blockchain.",
+           "operationId":"get_code",
+           "parameters":[  
+
+           ],
+           "requestBody":{  
+              "content":{  
+                 "application/json":{  
+                    "schema":{  
+                       "type":"object",
+                       "required":[  
+                          "account_name"
+                       ],
+                       "properties":{  
+                          "account_name":{  
+                             "type":"string",
+                             "description":"Provide a smart contract account name"
+                          }
+                       }
+                    }
+                 }
+              }
+           },
+           "deprecated":false,
+           "security":[  
+
+           ]
+        }
+     },
+     "/get_table_rows":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"get_table_rows",
+           "description":"Returns an object containing rows from the specified table.",
+           "operationId":"get_table_rows",
+           "parameters":[  
+
+           ],
+           "requestBody":{  
+              "content":{  
+                 "application/json":{  
+                    "schema":{  
+                       "type":"object",
+                       "required":[  
+                          "scope",
+                          "code",
+                          "table",
+                          "json"
+                       ],
+                       "properties":{  
+                          "scope":{  
+                             "type":"string",
+                             "description":"The account name where the scope of the data resides"
+                          },
+                          "code":{  
+                             "type":"string",
+                             "description":"The name of the smart contract that controls the provided table"
+                          },
+                          "table":{  
+                             "type":"string",
+                             "description":"The name of the table to query"
+                          },
+                          "table_key":{  
+                             "type":"string",
+                             "description":""
+                          },
+                          "json":{  
+                             "type":"boolean",
+                             "description":"Return json object or return formatted response"
+                          },
+                          "lower_bound":{  
+                             "type":"string",
+                             "description":"Filters results to return the first element that is not lesser than provided value in set"
+                          },
+                          "upper_bound":{  
+                             "type":"string",
+                             "description":"Filters results to return the first element that is greater than provided value in set"
+                          },
+                          "limit":{  
+                             "type":"integer",
+                             "description":"Limit results returned in response",
+                             "format":"int32"
+                          },
+                          "index_position":{  
+                             "type":"string",
+                             "description":"Position of the index used, for example, 1 for primary index, 2 for secondary index, etc"
+                          },
+                          "key_type":{  
+                             "type":"string",
+                             "description":"Type of key specified by index_position (for example: `uint64_t` or `name`)"
+                          },
+                          "encode_type":{  
+                             "type":"string",
+                             "description":""
+                          }
+                       }
+                    }
+                 }
+              }
+           },
+           "deprecated":false,
+           "security":[  
+
+           ]
+        }
+     },
+     "/get_account":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"get_account",
+           "description":"Returns an object containing various details about a specific account on the blockchain.",
+           "operationId":"get_account",
+           "parameters":[  
+
+           ],
+           "requestBody":{  
+              "content":{  
+                 "application/json":{  
+                    "schema":{  
+                       "type":"object",
+                       "required":[  
+                          "account_name"
+                       ],
+                       "properties":{  
+                          "account_name":{  
+                             "type":"string",
+                             "description":"Provide an account name"
+                          }
+                       }
+                    }
+                 }
+              }
+           },
+           "deprecated":false,
+           "security":[  
+
+           ]
+        }
+     },
+     "/get_block":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"get_block",
+           "description":"Returns an object containing various details about a specific block on the blockchain.",
+           "operationId":"get_block",
+           "parameters":[  
+
+           ],
+           "requestBody":{  
+              "content":{  
+                 "application/json":{  
+                    "schema":{  
+                       "type":"object",
+                       "required":[  
+                          "block_num_or_id"
+                       ],
+                       "properties":{  
+                          "block_num_or_id":{  
+                             "type":"string",
+                             "description":"Provide a `block number` or a `block id`"
+                          }
+                       }
+                    }
+                 }
+              }
+           },
+           "deprecated":false,
+           "security":[  
+
+           ]
+        }
+     },
+     "/get_required_keys":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"get_required_keys",
+           "description":"Returns the required keys needed to sign a transaction.",
+           "operationId":"get_required_keys",
+           "parameters":[  
+
+           ],
+           "requestBody":{  
+              "content":{  
+                 "application/json":{  
+                    "schema":{  
+                       "type":"object",
+                       "required":[  
+                          "transaction",
+                          "available_keys"
+                       ],
+                       "properties":{  
+                          "transaction":{  
+                             "type":"string",
+                             "description":"Provide the transaction object",
+                             "format":"json"
+                          },
+                          "available_keys":{  
+                             "type":"array",
+                             "description":"Provide the available keys",
+                             "items":{  
+                                "type":"string"
+                             }
+                          }
+                       }
+                    }
+                 }
+              }
+           },
+           "deprecated":false,
+           "security":[  
+
+           ]
+        }
+     },
+     "/push_transaction":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"push_transaction",
+           "description":"This method expects a transaction in JSON format and will attempt to apply it to the blockchain.",
+           "operationId":"push_transaction",
+           "parameters":[  
+
+           ],
+           "requestBody":{  
+              "content":{  
+                 "application/json":{  
+                    "schema":{  
+                       "type":"object",
+                       "properties":{  
+                          "signatures":{  
+                             "type":"array",
+                             "description":"array of signatures required to authorize transaction",
+                             "items":{  
+                                "type":"string"
+                             }
+                          },
+                          "compression":{  
+                             "type":"string",
+                             "description":"compression used, usually false"
+                          },
+                          "packed_context_free_data":{  
+                             "type":"string",
+                             "description":"json to hex"
+                          },
+                          "packed_trx":{  
+                             "type":"string",
+                             "description":"json to hex"
+                          }
+                       }
+                    }
+                 }
+              }
+           },
+           "deprecated":false
+        }
+     },
+     "/abi_bin_to_json":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"abi_bin_to_json",
+           "description":"Serializes binary hex to json.",
+           "operationId":"abi_bin_to_json",
+           "parameters":[  
+
+           ],
+           "requestBody":{  
+              "content":{  
+                 "application/json":{  
+                    "schema":{  
+                       "type":"object",
+                       "required":[  
+                          "code",
+                          "action",
+                          "binargs"
+                       ],
+                       "properties":{  
+                          "code":{  
+                             "type":"string",
+                             "description":"Provide the smart contract account name"
+                          },
+                          "action":{  
+                             "type":"string",
+                             "description":"Provide the action name"
+                          },
+                          "binargs":{  
+                             "type":"string",
+                             "description":"Provide the binary arguments"
+                          }
+                       }
+                    }
+                 }
+              }
+           },
+           "deprecated":false,
+           "security":[  
+
+           ]
+        }
+     },
+     "/abi_json_to_bin":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"abi_json_to_bin",
+           "description":"Serializes json to binary hex. The resulting binary hex is usually used for the data field in push_transaction.",
+           "operationId":"abi_json_to_bin",
+           "parameters":[  
+
+           ],
+           "requestBody":{  
+              "content":{  
+                 "application/json":{  
+                    "schema":{  
+                       "type":"object",
+                       "properties":{  
+                          "code":{  
+                             "type":"string",
+                             "description":"Provide the account name."
+                          },
+                          "action":{  
+                             "type":"string",
+                             "description":"Provide the action arguments"
+                          },
+                          "args":{  
+                             "type":"string",
+                             "description":"Provide the json arguments",
+                             "format":"json"
+                          }
+                       }
+                    }
+                 }
+              }
+           },
+           "deprecated":false,
+           "security":[  
+
+           ]
+        }
+     },
+     "/push_transactions":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"push_transactions",
+           "description":"This method expects a transactions in JSON format and will attempt to apply it to the blockchain. This method push multiple transactions at once.",
+           "operationId":"push_transactions",
+           "parameters":[  
+
+           ],
+           "requestBody":{  
+              "content":{  
+                 "application/json":{  
+                    "schema":{  
+                       "type":"object",
+                       "required":[  
+                          "body"
+                       ],
+                       "properties":{  
+                          "body":{  
+                             "type":"string",
+                             "description":"Provide the authorizations for the transaction",
+                             "format":"json"
+                          }
+                       }
+                    }
+                 }
+              }
+           },
+           "deprecated":false
+        }
+     },
+     "/get_abi":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"get_abi",
+           "description":"",
+           "operationId":"get_abi",
+           "parameters":[  
+
+           ],
+           "requestBody":{  
+              "content":{  
+                 "application/json":{  
+                    "schema":{  
+                       "type":"object",
+                       "properties":{  
+                          "account_name":{  
+                             "type":"string",
+                             "description":"name of account to retrieve ABI for"
+                          }
+                       }
+                    }
+                 }
+              }
+           },
+           "deprecated":false
+        }
+     },
+     "/get_currency_balance":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"get_currency_balance",
+           "description":"Trying option should fill data with POST style rather than GET style.",
+           "operationId":"get_currency_balance",
+           "parameters":[  
+              {  
+                 "name":"code",
+                 "in":"query",
+                 "description":"",
+                 "required":false,
+                 "schema":{  
+                    "type":"string"
+                 }
+              },
+              {  
+                 "name":"account",
+                 "in":"query",
+                 "description":"account to get balance of",
+                 "required":false,
+                 "schema":{  
+                    "type":"string"
+                 }
+              },
+              {  
+                 "name":"symbol",
+                 "in":"query",
+                 "description":"symbol to query",
+                 "required":false,
+                 "schema":{  
+                    "type":"string"
+                 }
+              }
+           ],
+           "requestBody":null,
+           "deprecated":false
+        }
+     },
+     "/get_currency_stats":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"get_currency_stats",
+           "description":"",
+           "operationId":"get_currency_stats",
+           "parameters":[  
+
+           ],
+           "requestBody":{  
+              "content":{  
+                 "application/json":{  
+                    "schema":{  
+                       "type":"object",
+                       "properties":{  
+                          "code":{  
+                             "type":"string",
+                             "description":""
+                          },
+                          "symbol":{  
+                             "type":"string",
+                             "description":"currency symbol to get the stats for"
+                          }
+                       }
+                    }
+                 }
+              }
+           },
+           "deprecated":false
+        }
+     },
+     "/push_block":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"push_block",
+           "description":"",
+           "operationId":"push_block",
+           "parameters":[  
+
+           ],
+           "requestBody":{  
+              "content":{  
+                 "application/json":{  
+                    "schema":{  
+                       "type":"object",
+                       "properties":{  
+                          "timestamp":{  
+                             "type":"string",
+                             "description":"",
+                             "format":"date-time"
+                          },
+                          "producer":{  
+                             "type":"string",
+                             "description":""
+                          },
+                          "confirmed":{  
+                             "type":"integer",
+                             "description":"",
+                             "format":"int32"
+                          },
+                          "previous":{  
+                             "type":"string",
+                             "description":""
+                          },
+                          "transaction_mroot":{  
+                             "type":"string",
+                             "description":""
+                          },
+                          "action_mroot":{  
+                             "type":"integer",
+                             "description":"",
+                             "format":"int32"
+                          },
+                          "version":{  
+                             "type":"string",
+                             "description":""
+                          },
+                          "new_producers":{  
+                             "type":"array",
+                             "description":"",
+                             "items":{  
+                                "type":"string"
+                             }
+                          },
+                          "header_extensions":{  
+                             "type":"array",
+                             "description":"",
+                             "items":{  
+                                "type":"string"
+                             }
+                          },
+                          "producer_signature":{  
+                             "type":"string",
+                             "description":""
+                          },
+                          "transactions":{  
+                             "type":"array",
+                             "description":""
+                          },
+                          "block_extensions":{  
+                             "type":"array",
+                             "description":"",
+                             "items":{  
+                                "type":"string"
+                             }
+                          }
+                       }
+                    }
+                 }
+              }
+           },
+           "deprecated":false
+        }
+     },
+     "/get_block_header_state":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"get_block_header_state",
+           "description":"",
+           "operationId":"get_block_header_state",
+           "parameters":[  
+
+           ],
+           "requestBody":{  
+              "content":{  
+                 "application/json":{  
+                    "schema":{  
+                       "type":"object",
+                       "properties":{  
+                          "block_num_or_id":{  
+                             "type":"string",
+                             "description":"Provide a `block number` or a `block id`"
+                          }
+                       }
+                    }
+                 }
+              }
+           },
+           "deprecated":false
+        }
+     },
+     "/get_producers":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"get_producers",
+           "description":"",
+           "operationId":"get_producers",
+           "parameters":[  
+
+           ],
+           "requestBody":{  
+              "content":{  
+                 "application/json":{  
+                    "schema":{  
+                       "type":"object",
+                       "properties":{  
+                          "limit":{  
+                             "type":"string",
+                             "description":"total number of producers to retrieve"
+                          },
+                          "lower_bound":{  
+                             "type":"string",
+                             "description":""
+                          },
+                          "json":{  
+                             "type":"boolean",
+                             "description":"return result in JSON format?"
+                          }
+                       }
+                    }
+                 }
+              }
+           },
+           "deprecated":false
+        }
+     },
+     "/get_raw_code_and_abi":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"get_raw_code_and_abi",
+           "description":"",
+           "operationId":"get_raw_code_and_abi",
+           "parameters":[  
+
+           ],
+           "requestBody":{  
+              "content":{  
+                 "application/json":{  
+                    "schema":{  
+                       "type":"object",
+                       "properties":{  
+                          "account_name":{  
+                             "type":"string",
+                             "description":"Account name to get code and abi for"
+                          }
+                       }
+                    }
+                 }
+              }
+           },
+           "deprecated":false
+        }
+     },
+     "/get_table_by_scope":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"get_table_by_scope",
+           "description":"",
+           "operationId":"get_table_by_scope",
+           "parameters":[  
+
+           ],
+           "requestBody":{  
+              "content":{  
+                 "application/json":{  
+                    "schema":{  
+                       "type":"object",
+                       "required":[  
+                          "code"
+                       ],
+                       "properties":{  
+                          "code":{  
+                             "type":"string",
+                             "description":"`name` of the contract to return table data for"
+                          },
+                          "table":{  
+                             "type":"string",
+                             "description":"Filter results by table"
+                          },
+                          "lower_bound":{  
+                             "type":"string",
+                             "description":"Filters results to return the first element that is not less than provided value in set"
+                          },
+                          "upper_bound":{  
+                             "type":"string",
+                             "description":"Filters results to return the first element that is greater than provided value in set"
+                          },
+                          "limit":{  
+                             "type":"integer",
+                             "description":"Limit number of results returned.",
+                             "format":"int32"
+                          }
+                       }
+                    }
+                 }
+              }
+           },
+           "deprecated":false
+        }
+     }
+  },
+  "x-headers":[  
+     {  
+        "key":"Content-Type",
+        "value":"application/x-www-form-urlencoded; charset=UTF-8"
+     }
+  ],
+  "x-explorer-enabled":true,
+  "x-proxy-enabled":false,
+  "x-samples-enabled":true,
+  "x-samples-languages":[  
+     "curl",
+     "node",
+     "ruby",
+     "javascript",
+     "python"
+  ]
+}

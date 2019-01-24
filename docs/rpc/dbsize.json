@@ -1,0 +1,61 @@
+{  
+  "openapi":"3.0.0",
+  "info":{  
+     "title":"DBSize",
+     "version":"0.0.1"
+  },
+  "servers":[  
+     {  
+        "url":"http://127.0.0.1:8888/v1/db_size"
+     }
+  ],
+  "components":{  
+     "securitySchemes":{  
+
+     },
+     "schemas":{  
+
+     }
+  },
+  "security":[  
+     {  
+
+     }
+  ],
+  "paths":{  
+     "/get":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"get",
+           "description":"",
+           "operationId":"get-1",
+           "parameters":[  
+
+           ],
+           "requestBody":null,
+           "deprecated":false,
+           "security":[  
+
+           ]
+        }
+     }
+  },
+  "x-headers":[  
+     {  
+        "key":"Content-Type",
+        "value":"application/x-www-form-urlencoded; charset=UTF-8"
+     }
+  ],
+  "x-explorer-enabled":true,
+  "x-proxy-enabled":false,
+  "x-samples-enabled":true,
+  "x-samples-languages":[  
+     "curl",
+     "node",
+     "ruby",
+     "javascript",
+     "python"
+  ]
+}

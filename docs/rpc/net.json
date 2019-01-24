@@ -1,0 +1,131 @@
+{  
+  "openapi":"3.0.0",
+  "info":{  
+     "title":"Net",
+     "version":"0.0.1"
+  },
+  "servers":[  
+     {  
+        "url":"http://127.0.0.1:8888/v1/net"
+     }
+  ],
+  "components":{  
+     "securitySchemes":{  
+
+     },
+     "schemas":{  
+
+     }
+  },
+  "security":[  
+     {  
+
+     }
+  ],
+  "paths":{  
+     "/connect":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"connect",
+           "description":"",
+           "operationId":"connect",
+           "parameters":[  
+
+           ],
+           "requestBody":{  
+              "content":{  
+                 "application/json":{  
+                    "schema":{  
+                       "type":"object",
+                       "properties":{  
+                          "RAW_BODY":{  
+                             "type":"string",
+                             "description":""
+                          }
+                       }
+                    }
+                 }
+              }
+           },
+           "deprecated":false
+        }
+     },
+     "/disconnect":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"disconnect",
+           "description":"",
+           "operationId":"disconnect",
+           "parameters":[  
+
+           ],
+           "requestBody":{  
+              "content":{  
+                 "application/json":{  
+                    "schema":{  
+                       "type":"object",
+                       "properties":{  
+                          "RAW_BODY":{  
+                             "type":"string",
+                             "description":""
+                          }
+                       }
+                    }
+                 }
+              }
+           },
+           "deprecated":false
+        }
+     },
+     "/connections":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"connections",
+           "description":"",
+           "operationId":"peers",
+           "parameters":[  
+
+           ],
+           "requestBody":null,
+           "deprecated":false
+        }
+     },
+     "/status":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"status",
+           "description":"",
+           "operationId":"status",
+           "parameters":[  
+
+           ],
+           "requestBody":null,
+           "deprecated":false
+        }
+     }
+  },
+  "x-headers":[  
+     {  
+        "value":"application/x-www-form-urlencoded; charset=UTF-8",
+        "key":"Content-Type"
+     }
+  ],
+  "x-explorer-enabled":true,
+  "x-proxy-enabled":false,
+  "x-samples-enabled":true,
+  "x-samples-languages":[  
+     "curl",
+     "node",
+     "ruby",
+     "javascript",
+     "python"
+  ]
+}

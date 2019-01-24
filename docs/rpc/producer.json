@@ -1,0 +1,252 @@
+{  
+  "openapi":"3.0.0",
+  "info":{  
+     "title":"Producer",
+     "version":"0.0.1"
+  },
+  "servers":[  
+     {  
+        "url":"http://127.0.0.1:8888/v1/producer"
+     }
+  ],
+  "components":{  
+     "securitySchemes":{  
+
+     },
+     "schemas":{  
+
+     }
+  },
+  "security":[  
+     {  
+
+     }
+  ],
+  "paths":{  
+     "/pause":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"pause",
+           "description":"",
+           "operationId":"pause",
+           "parameters":[  
+
+           ],
+           "requestBody":null,
+           "deprecated":false
+        }
+     },
+     "/paused":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"paused",
+           "description":"",
+           "operationId":"paused",
+           "parameters":[  
+
+           ],
+           "requestBody":null,
+           "deprecated":false
+        }
+     },
+     "/resume":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"resume",
+           "description":"",
+           "operationId":"resume",
+           "parameters":[  
+
+           ],
+           "requestBody":null,
+           "deprecated":false
+        }
+     },
+     "/remove_greylist_accounts":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"remove_greylist_accounts",
+           "description":"",
+           "operationId":"remove_greylist_accounts",
+           "parameters":[  
+
+           ],
+           "requestBody":{  
+              "content":{  
+                 "application/json":{  
+                    "schema":{  
+                       "type":"object",
+                       "properties":{  
+                          "accounts":{  
+                             "type":"array",
+                             "description":"Accounts to add to greylist",
+                             "items":{  
+                                "type":"string"
+                             }
+                          }
+                       }
+                    }
+                 }
+              }
+           },
+           "deprecated":false
+        }
+     },
+     "/add_greylist_accounts":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"add_greylist_accounts",
+           "description":"",
+           "operationId":"add_greylist_accounts",
+           "parameters":[  
+
+           ],
+           "requestBody":{  
+              "content":{  
+                 "application/json":{  
+                    "schema":{  
+                       "type":"object",
+                       "properties":{  
+                          "accounts":{  
+                             "type":"array",
+                             "description":"Accounts to add to greylist",
+                             "items":{  
+                                "type":"string"
+                             }
+                          }
+                       }
+                    }
+                 }
+              }
+           },
+           "deprecated":false
+        }
+     },
+     "/get_greylist":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"get_greylist",
+           "description":"Returns producer greylist",
+           "operationId":"get_greylist",
+           "parameters":[  
+
+           ],
+           "requestBody":null,
+           "deprecated":false
+        }
+     },
+     "/set_whitelist_blacklist":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"set_whitelist_blacklist",
+           "description":"",
+           "operationId":"set_whitelist_blacklist",
+           "parameters":[  
+
+           ],
+           "requestBody":null,
+           "deprecated":false
+        }
+     },
+     "/update_runtime_options":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"update_runtime_options",
+           "description":"",
+           "operationId":"update_runtime_options",
+           "parameters":[  
+
+           ],
+           "requestBody":{  
+              "content":{  
+                 "application/json":{  
+                    "schema":{  
+                       "type":"object",
+                       "properties":{  
+                          "max_transaction_time":{  
+                             "type":"integer",
+                             "description":"",
+                             "format":"int32"
+                          },
+                          "max_irreversible_block_age":{  
+                             "type":"integer",
+                             "description":"",
+                             "format":"int32"
+                          },
+                          "produce_time_offset_us":{  
+                             "type":"integer",
+                             "description":"",
+                             "format":"int32"
+                          },
+                          "last_block_time_offset_us":{  
+                             "type":"integer",
+                             "description":"",
+                             "format":"int32"
+                          },
+                          "incoming_defer_ratio":{  
+                             "type":"integer",
+                             "description":"",
+                             "format":"int32"
+                          },
+                          "subjective_cpu_leeway_us":{  
+                             "type":"integer",
+                             "description":"",
+                             "format":"int32"
+                          }
+                       }
+                    }
+                 }
+              }
+           },
+           "deprecated":false
+        }
+     },
+     "/get_runtime_options":{  
+        "post":{  
+           "tags":[  
+
+           ],
+           "summary":"get_runtime_options",
+           "description":"",
+           "operationId":"get_runtime_options",
+           "parameters":[  
+
+           ],
+           "requestBody":null,
+           "deprecated":false
+        }
+     }
+  },
+  "x-headers":[  
+     {  
+        "key":"Content-Type",
+        "value":"application/x-www-form-urlencoded; charset=UTF-8"
+     }
+  ],
+  "x-explorer-enabled":true,
+  "x-proxy-enabled":false,
+  "x-samples-enabled":true,
+  "x-samples-languages":[  
+     "curl",
+     "node",
+     "ruby",
+     "javascript",
+     "python"
+  ]
+}
